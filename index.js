@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const Sse = require("json-sse");
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 const db = {}; //fake database
 db.messages = []; //fake db table
