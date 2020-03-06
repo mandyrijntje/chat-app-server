@@ -16,7 +16,7 @@ app.use(parser); //make this before any ENDPOINT!!
 const stream = new Sse();
 
 app.get("/stream", (request, response) => {
-  const action = { type: "ALL_MESSAGES", payload: db.messages }; //coming from db
+  const action = { type: "ALL_MESSAGES", payload: db.messages }; //coming from db//OUTPUT IS JSON NOT OBJ!!
   stream.updateInit(action); //sending update with all past msgs // change to action
   stream.init(request, response);
 }); //connecting to the stream
