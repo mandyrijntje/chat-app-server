@@ -1,14 +1,4 @@
-const Sequelize = require("sequelize");
-const databaseUrl =
-  process.env.DATABASE_URL ||
-  "postgres://postgres:secret@localhost:5432/postgres";
-
-const db = new Sequelize(databaseUrl);
-
-db.sync()
-  .then(() => {
-    console.log("Database schema updated!");
-  })
-  .catch(console.error);
-
+const db = {}; //fake database
+db.messages = []; //fake db table
+db.channels = ["Channel 1", "Channel 2", "Channel 3"];
 module.exports = db;
