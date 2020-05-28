@@ -6,15 +6,19 @@ const { Router } = express;
 
 const router = Router();
 
-router.post("/channel", (request, response, next) => {
-  const { name } = request.body; //destructuring text
-  db.channels.push(name); //push message to db
-  response.send(name); //send back what you made
+router.post("/channel", (request, response) => {
+  const { name } = request.body;
 
-  const action = { type: "NEW_CHANNEL", payload: name };
+  db.channels.push(name);
 
-  console.log("db test:", db);
-  stream.send(action); //sending messages over stream
+  response.send(name);
+
+  const action = {
+    type: "NEW_CHANNEL",
+    payload: name,
+  };
+
+  stream.send(action);
 });
 
 module.exports = router;
